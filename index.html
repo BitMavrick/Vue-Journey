@@ -13,7 +13,10 @@
       <button v-on:click="age++">Encrease+</button>
       <br />
       <br />
-      <button v-on:click="age--">Decrease-</button>
+      <div v-if="false">
+        <!-- This will not appear in the browser -->
+        <button v-on:click="age--">Decrease-</button>
+      </div>
     </div>
     <script src="app.js"></script>
   </body>
