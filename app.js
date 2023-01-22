@@ -1,7 +1,8 @@
 const app = Vue.createApp({
   data() {
     return {
-      age: 15,
+      show: true,
+      name: "Mehedi Hasan",
     };
   },
 });

@@ -9,14 +9,16 @@
   </head>
   <body>
     <div id="app">
-      <h1>The Number is {{ age }}</h1>
-      <button v-on:click="age++">Encrease+</button>
-      <br />
-      <br />
-      <div v-if="false">
-        <!-- This will not appear in the browser -->
-        <button v-on:click="age--">Decrease-</button>
+      <!-- Vue if else condition -->
+      <div v-if="show">
+        <h1>My name is {{ name }}</h1>
       </div>
+      <div v-else>
+        <h1>The name is hidden now</h1>
+      </div>
+
+      <button v-if="show" v-on:click="show = !show">Hide</button>
+      <button v-else v-on:click="show = true">Show</button>
     </div>
     <script src="app.js"></script>
   </body>
