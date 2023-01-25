@@ -15,7 +15,10 @@ export default {
   methods: {
     handleClick() {
       console.log(this.$refs.input);
+      // Add a new class to the input
       this.$refs.input.classList.add("active");
+      // Focus menthod
+      this.$refs.input.focus();
     },
   },
 };
