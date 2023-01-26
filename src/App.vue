@@ -1,12 +1,16 @@
 <template>
   <h1>{{ title }}</h1>
-  <input type="text" ref="input" />
-  <button @click="handleClick">Click me</button>
+  <Modal />
 </template>
 
 <script>
+import Modal from "./components/Modal.vue";
+
 export default {
   name: "App",
+  components: {
+    Modal,
+  },
   data() {
     return {
       title: "This is my first Vue App guys!",
@@ -15,10 +19,6 @@ export default {
   methods: {
     handleClick() {
       console.log(this.$refs.input);
-      // Add a new class to the input
-      this.$refs.input.classList.add("active");
-      // Focus menthod
-      this.$refs.input.focus();
     },
   },
 };
