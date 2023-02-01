@@ -1,6 +1,6 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal header="this is the props" text="This is another text" />
+  <Modal :header="props1" :text="props2" />
 </template>
 
 <script>
@@ -14,6 +14,8 @@ export default {
   data() {
     return {
       title: "This is my first Vue App guys!",
+      props1: "this is the main props",
+      props2: "This is another props",
     };
   },
   methods: {
