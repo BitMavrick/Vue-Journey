@@ -16,7 +16,7 @@ export default {
       title: "This is my first Vue App guys!",
       props1: "this is the main props",
       props2: "This is another props",
-      theme: "sale",
+      theme: "red",
     };
   },
   methods: {
