@@ -1,6 +1,6 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal header="this is the props" />
+  <Modal header="this is the props" text="This is another text" />
 </template>
 
 <script>
