@@ -2,12 +2,15 @@
   <h1>{{ title }}</h1>
   <p>Welcome</p>
   <div v-if="showModal">
-    <Modal
-      :header="props1"
-      :text="props2"
-      :theme="theme"
-      @close="toggleModal"
-    />
+    <Modal :theme="theme" @close="toggleModal">
+      <template v-slot:links>
+        <a href="#">Sign up now</a>
+        <a href="#">More info</a>
+      </template>
+
+      <h1>Hello This is the modal</h1>
+      <p>This is the text</p>
+    </Modal>
   </div>
   <button @click.shift="toggleModal">Open Modal (Hold Shift)</button>
 </template>
@@ -23,8 +26,6 @@ export default {
   data() {
     return {
       title: "This is my first Vue App guys!",
-      props1: "this is the main props",
-      props2: "This is another props",
       showModal: false,
       theme: "red",
     };
