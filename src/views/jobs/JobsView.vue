@@ -11,12 +11,19 @@
 export default {
   data() {
     return {
-      jobs: [
-        { title: "UX Designer", id: 1, details: "lorem" },
-        { title: "Wev Designer", id: 2, details: "lorem" },
-        { title: "Vue Designer", id: 3, details: "lorem" },
-      ],
+      jobs: [],
     };
+  },
+
+  mounted() {
+    fetch("http://localhost:3000/jobs")
+      .then((response) => response.json())
+      .then((data) => {
+        this.jobs = data;
+      })
+      .catch((error) => {
+        console.log(err.message);
+      });
   },
 };
 </script>
