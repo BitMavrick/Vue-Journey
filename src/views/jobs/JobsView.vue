@@ -8,7 +8,7 @@
     </div>
   </div>
   <div v-else>
-    <p>Loading ...</p> 
+    <p>Loading ...</p>
   </div>
 </template>
 
@@ -19,6 +19,8 @@ export default {
       jobs: [],
     };
   },
+
+  // json-server --watch data/db.json
 
   mounted() {
     fetch("http://localhost:3000/jobs")
