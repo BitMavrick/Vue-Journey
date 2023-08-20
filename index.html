@@ -21,10 +21,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li v-for="link in links" class="nav-item">
-                        <a class="nav-link active" aria-current="page" :href="link.url"
-                            :title="`this link goes to ${link.text} page`">
-                            {{ link.text }}</a>
+                    <li v-for="(page, index) in pages" class="nav-item" :key="index">
+                        <a class="nav-link active" aria-current="page" :href="page.link.url"
+                            :title="`this link goes to ${page.link.text} page`" @click.prevent="activePage = index">
+                            {{ page.link.text }}</a>
                     </li>
                 </ul>
             </div>
@@ -33,8 +33,8 @@
 
     <div id="content" class="container">
 
-        <h1>{{ pageTitle }}</h1>
-        <p>{{ content }}</p>
+        <h1>{{ pages[activePage].pageTitle }}</h1>
+        <p>{{ pages[activePage].content }}</p>
 
     </div>
 
@@ -42,23 +42,28 @@
         Vue.createApp({
             data() {
                 return {
-                    links: [
-                        { text: 'Home', url: 'home.html' },
-                        { text: 'About', url: 'about.html' },
-                        { text: 'Contact', url: 'contact.html' }
+                    activePage: 0,
+                    pages: [
+                        {
+                            link: { text: 'Home', url: 'index.html' },
+                            pageTitle: 'Home Page',
+                            content: 'This is the home page content'
+                        },
+                        {
+                            link: { text: 'About', url: 'about.html' },
+                            pageTitle: 'About Page',
+                            content: 'This is the about page content'
+                        },
+                        {
+                            link: { text: 'Contact', url: 'contact.html' },
+                            pageTitle: 'Contact Page',
+                            content: 'This is the contact page content'
+                        },
+
                     ]
                 };
             }
-        }).mount('nav');
-
-        Vue.createApp({
-            data() {
-                return {
-                    pageTitle: 'Hello, Vue!',
-                    content: 'This is some content.'
-                };
-            }
-        }).mount('#content');
+        }).mount('body');
     </script>
 
 </body>
