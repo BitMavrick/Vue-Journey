@@ -22,7 +22,9 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li v-for="link in links" class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">{{ link }}</a>
+                        <a class="nav-link active" aria-current="page" :href="link.url"
+                            :title="`this link goes to ${link.text} page`">
+                            {{ link.text }}</a>
                     </li>
                 </ul>
             </div>
@@ -40,7 +42,11 @@
         Vue.createApp({
             data() {
                 return {
-                    links: ['Home', 'About', 'Contact']
+                    links: [
+                        { text: 'Home', url: 'home.html' },
+                        { text: 'About', url: 'about.html' },
+                        { text: 'Contact', url: 'contact.html' }
+                    ]
                 };
             }
         }).mount('nav');
