@@ -12,7 +12,8 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg"
+        :class="{'navbar-light bg-light' : !useDarkNavbar, 'navbar-dark bg-dark' : useDarkNavbar}">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">My Vue</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -28,11 +29,17 @@
                             {{ page.link.text }}</a>
                     </li>
                 </ul>
+
             </div>
+            <form class="d-flex">
+                <button class="btn btn-primary" @click.prevent="useDarkNavbar = !useDarkNavbar">
+                    Toggle Navbar
+                </button>
+            </form>
         </div>
     </nav>
 
-    <div id="content" class="container">
+    <div id=" content" class="container">
 
         <h1>{{ pages[activePage].pageTitle }}</h1>
         <p>{{ pages[activePage].content }}</p>
@@ -44,6 +51,7 @@
             data() {
                 return {
                     activePage: 0,
+                    useDarkNavbar: false,
                     pages: [
                         {
                             link: { text: 'Home', url: 'index.html' },
