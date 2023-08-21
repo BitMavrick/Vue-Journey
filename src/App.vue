@@ -1,9 +1,20 @@
 <template>
-    <p>simple text</p>
+    <navbar :pages="pages" :active-page="activePage"></navbar>
+
+    <page-viewer :page="pages[activePage]"></page-viewer>
 </template>
 
 <script>
+import Navbar from './components/Navbar.vue';
+import PageViewer from './components/PageViewer.vue';
+
+
+
 export default {
+    components: {
+        Navbar,
+        PageViewer
+    },
     data() {
         return {
             activePage: 0,
