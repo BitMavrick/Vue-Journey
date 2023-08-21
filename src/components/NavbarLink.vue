@@ -18,7 +18,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .emphasize {
     text-decoration: underline !important;
 }

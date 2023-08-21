@@ -38,6 +38,13 @@ export default {
             ]
         };
     },
+
+    methods: {
+        async getPages() {
+            let res = await fetch('pages.json')
+
+        }
+    }
 }
 
 </script>
