@@ -1,5 +1,5 @@
 <template>
-    <navbar :pages="pages" :active-page="activePage"></navbar>
+    <navbar :pages="pages" :active-page="activePage" :nav-link-click="(index) => activePage = index"></navbar>
 
     <page-viewer :page="pages[activePage]"></page-viewer>
 </template>

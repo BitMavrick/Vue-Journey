@@ -11,7 +11,7 @@
                     <li v-for="(page, index) in pages" class="nav-item" :key="index">
                         <a class="nav-link" :class="{ active: activePage == index }" aria-current="page"
                             :href="page.link.url" :title="`this link goes to ${page.link.text} page`"
-                            @click.prevent="activePage = index">
+                            @click.prevent="navLinkClick(index)">
                             {{ page.link.text }}</a>
                     </li>
                 </ul>
@@ -29,14 +29,14 @@
 <script>
 
 export default {
-    props: ['pages', 'activePage'],
+    props: ['pages', 'activePage', 'navLinkClick'],
 
     data() {
         return {
             theme: 'light',
         };
     },
-    methods: {
+    methods: { 
         changeTheme() {
             let theme = 'light';
 
