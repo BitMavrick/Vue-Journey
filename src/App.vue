@@ -8,41 +8,27 @@
 import Navbar from './components/Navbar.vue';
 import PageViewer from './components/PageViewer.vue';
 
-
-
 export default {
     components: {
         Navbar,
         PageViewer
     },
+    created() {
+        this.getPages();
+    },
     data() {
         return {
             activePage: 0,
-            pages: [
-                {
-                    link: { text: 'Home', url: 'index.html' },
-                    pageTitle: 'Home Page',
-                    content: 'This is the home page content'
-                },
-                {
-                    link: { text: 'About', url: 'about.html' },
-                    pageTitle: 'About Page',
-                    content: 'This is the about page content'
-                },
-                {
-                    link: { text: 'Contact', url: 'contact.html' },
-                    pageTitle: 'Contact Page',
-                    content: 'This is the contact page content'
-                },
-
-            ]
+            pages: []
         };
     },
 
     methods: {
         async getPages() {
             let res = await fetch('pages.json')
+            let data = await res.json();
 
+            this.pages = data;
         }
     }
 }
